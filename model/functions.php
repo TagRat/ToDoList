@@ -1,11 +1,13 @@
 <?php
 function list_todo() {
     global $db;
-    $query = 'SELECT id_name FROM todo
-    $statement = $db->prepare($query);
-    $statement->execute();
-    $category = $statement->fetch();
-    return $statement;    
+   $query = 'SELECT id_name FROM todo
+   $statement = $db->prepare($query);
+   $statement->execute();
+   $category = $statement->fetch();
+   $category_name = $category['categoryName'];
+   return $category_name;
+   return $statement;    
 }
 
 //function get_category_name($category_id) {
