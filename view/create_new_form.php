@@ -1,29 +1,49 @@
-<?php include 'header.php'; ?>
-<main>
-    <H1>New Todo List</H1>
+<!DOCTYPE html>
 
-    <form action="model/create_new.php" method="post">
-        <div id="data">
-          <Label>List Name: </Label>
+<head>
+    <title>To Do Create</title>
+<link rel="stylesheet" type="text/css" href="main.css" />  
+
+</head>
+
+
+<html>
+  <body>
+    <div id="container">
+<div id="header">
+    <header><h2>To Do List Manager Test 2</h2></header>
+</div>
+
+
+
+      <div id="navbar">
+      <h3> stay relevant</h3>
+      </div>
+
+      <div id="content">
+       <form action="../model/create_new.php" method="post">
+         <div id="data">
+          <Label>Todo Name: </Label>
           <input type="text" name="name"><br>
-          <label>Task 1</label>
-          <input type="text" name="task1"><br>
-          <label>Task 2</label>
-          <input type="text" name="task2"><br>
-          <label>Task 3</label>
-          <input type="text" name="task3"><br>
-          <label>Task 4</label>
-          <input type="text" name="task4"><br>
-          <label>Task 5</label>
-          <input type="text" name="task5"><br>
+          <Label>Enter Task: </Label>
+          <input type="text" name="task"><br>
         </div>  
         <div id="button">
         	<label>&nbsp</label>
         	<input type="submit" name="Done">
        	</div>
-    </form>   	
-</main>
+      </form>
 
+</div>     
+<div id="footer">       
+    
+    <h5>Footer</h5>   
+      
+</div> 
+</div>     
+  	
+</body>
+</html>
        
 
 

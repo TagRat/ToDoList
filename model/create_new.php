@@ -1,30 +1,31 @@
-<?php include '../view/header.php'; ?>
-<main>
-    <H1>New Todo List</H1>
+<?php
+// Get the input from create_new.php
+$name = filter_input(INPUT_POST, 'name');
+$task = filter_input(INPUT_POST, 'task');
 
-    <form action="create_new.php" method="post">
-        <div id="data">
-          <Label>List Name: </Label>
-          <input type="text" name="name"><br>
-          <label>Task 1</label>
-          <input type="text" name="task1"><br>
-          <label>Task 2</label>
-          <input type="text" name="task2"><br>
-          <label>Task 3</label>
-          <input type="text" name="task3"><br>
-          <label>Task 4</label>
-          <input type="text" name="task4"><br>
-          <label>Task 5</label>
-          <input type="text" name="task5"><br>
-        </div>  
-        <div> id="buttons"
-        	<label>&nbsp</label>
-        	<input type="submit" name="Done">
-       	</div>
-    </form>   	
+// Validate inputs
+if ($name == null) {
+    $error = "Invalid List Name.";
+    include('../index.php');
+} else {
+    require_once('database.php');
+
+    // Add the product to the database  
+    $query = 'INSERT INTO todo
+                 (listName, taskName)
+              VALUES
+                 (:name, :task)';
+    $statement = $db->prepare($query);
+    $statement->bindValue(':name', $name);
+    $statement->bindValue(':task', $task);
+    $statement->execute();
+    $statement->closeCursor();
+
+    // Display the Product List page
+    include('../index.php');
+}
 ?>
 
-       
 
 
 

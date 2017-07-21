@@ -1,10 +1,9 @@
 <?php
-include 'view/header.php'; 
-require_once('model/database.php');
+ require_once('model/database.php');
 
 // Creates a list of todos but title 
-$query = 'SELECT DISTINCT id_name FROM todo
-              ORDER BY id_name';
+$query = 'SELECT DISTINCT listName FROM todo
+              ORDER BY listName';
 $statement = $db->prepare($query);
 $statement->execute();
 $names = $statement->fetchAll();
@@ -14,36 +13,52 @@ $statement->closeCursor();
 <!DOCTYPE html>
 <html>
 
-<!-- the head section -->
+
 <head>
     <title>To Do List</title>
-    <link rel="stylesheet" type="text/css" href="view/main.css" />
+<link rel="stylesheet" type="text/css" href="view/main.css" />  
 
 </head>
 
-<!-- the body section -->
 <body>
-<br>
-<form action="view/create_new_form.php">
-   <input type="submit" value="New ToDo">
-</form>
 
-<main>
-<left>
-        <!-- display a list of todo lists -->
-        <h2>Active To Do</h2>
-        <nav>
-        <ul>
-            <?php foreach ($names as $name) : ?>
-            <li>
-            <?php echo $name['id_name']; ?>
-            </li>
-            <?php endforeach; ?>
-        </ul>
-        </nav>          
-    </left>
+<div id="container">
+
+<div id="header">
+    <header><h2>To Do List Manager Test 2</h2></header>
+</div>
  
-</main>
+ <div id="navbar"><br>
+    <form action="view/create_new_form.php">
+    <input type="submit" value="New ToDo">
+    </form>
 
+<!-- display a list of todo lists -->
+    <h3>Current To Do</h3>
+     <ul>
+       <?php foreach ($names as $name) : ?>
+       <li>
+         <?php echo $name['listName']; ?>
+       </li>
+       <?php endforeach; ?>
+       </ul>
+
+ </div>      
+
+<div id="content">
+
+<h3>Holder only</h3>
+
+
+</div>
+
+<div id="footer">       
+    
+    <h5>Footer</h5>   
+      
+</div>
+</div>
+
+     
 </body>
 </html>
