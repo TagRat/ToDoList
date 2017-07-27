@@ -16,7 +16,7 @@ $statement->closeCursor();
 
 <head>
     <title>To Do List</title>
-<link rel="stylesheet" type="text/css" href="view/main.css" />  
+<link rel="stylesheet" type="text/css" href="main.css" />  
 
 </head>
 
@@ -35,10 +35,13 @@ $statement->closeCursor();
 
 <!-- display a list of todo lists -->
     <h3>Current To Do</h3>
-     <ul>
+    <ul>
+     <ul class="nav">
        <?php foreach ($names as $name) : ?>
        <li>
+         <a href="#"=<?php echo $name['listName']; ?>">
          <?php echo $name['listName']; ?>
+        </a>
        </li>
        <?php endforeach; ?>
        </ul>

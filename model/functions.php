@@ -11,7 +11,7 @@ function list_todo() {
 }
 
 //function get_category_name($category_id) {
-//    global $db;
+//   global $db;
 //    $query = 'SELECT * FROM categories
 //              WHERE categoryID = :category_id';    
 //    $statement = $db->prepare($query);
